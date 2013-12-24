@@ -62,6 +62,9 @@ Now you can see the website running in `http://localhost:9000` :D
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+## Web Components Gallery
+This Web Component can be found in [customelements.io](http://customelements.io), submit your project too!
+
 ## License
 
-[MIT License](http://opensource.org/licenses/MIT) © Bernard de Luna & Zeno Rocha
+[MIT License](http://opensource.org/licenses/MIT) © Bernard De Luna & Zeno Rocha
