@@ -158,9 +158,11 @@
 
 			if (turn == 'on') {
 				this.$.container.classList.add('on');
+				document.getElementById('xmas-audio').play();
 			}
 			else {
 				this.$.container.classList.remove('on');
+				document.getElementById('xmas-audio').pause();
 			}
 		}
 	});
