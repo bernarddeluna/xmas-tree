@@ -92,8 +92,23 @@
 		}
 		.on .balls {
 			animation: xmas 1s steps(1) infinite;
+            -webkit-animation: xmas 1s steps(1) infinite;
 		}
 		@-moz-keyframes xmas {
+			0%, 100% {
+				background-position: 22em 4em, 8em 6em, 16em 12em, 26em 15em, 10em 15em, 4em 18em, 20em 20em;
+			}
+			20%, 80% {
+				background-position: 4em 18em, 20em 20em, 22em 4em, 8em 6em, 16em 12em, 26em 15em, 10em 15em;
+			}
+			40% {
+				background-position:  10em 15em, 4em 18em, 22em 4em, 8em 6em, 26em 15em, 20em 20em, 16em 12em;
+			}
+			60% {
+				background-position: 26em 15em, 10em 15em, 8em 6em, 16em 12em, 22em 4em, 4em 18em, 20em 20em;
+			}
+		}
+		@-webkit-keyframes xmas {
 			0%, 100% {
 				background-position: 22em 4em, 8em 6em, 16em 12em, 26em 15em, 10em 15em, 4em 18em, 20em 20em;
 			}
