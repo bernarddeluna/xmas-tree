@@ -1,12 +1,12 @@
 # &lt;xmas-tree&gt;
 
-Web Components Experiment using [Ambient Light API](http://www.w3.org/TR/ambient-light/).
+Web Components Experiment using CSS and [Ambient Light API](http://www.w3.org/TR/ambient-light/).
 
 > **Attention:** Ambient Light API only works in Firefox 22+ (Mac OS X).
 
 ## Demo
 
-![Demo]()
+![Demo](http://f.cl.ly/items/0N1q1I3U3F2C1n0L291E/xmas-tree.gif)
 
 > [Check it live](http://bernarddeluna.github.io/xmas-tree).
 
