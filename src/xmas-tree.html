@@ -1,0 +1,33 @@
+<polymer-element name="xmas-tree">
+	<template>
+		<div id="container">
+			<p>árvore</p>
+		</div>
+
+		<style>
+		p {
+			color: red;
+		}
+		.on p {
+			color: green;
+		}
+		</style>
+	</template>
+	<script>
+	Polymer('xmas-tree', {
+		created: function() {
+			var that = this;
+
+			window.addEventListener('devicelight', function(event) {
+				console.log(event.value);
+				if (event.value <= 10) {
+					that.$.container.classList.add('on');
+				}
+				else {
+					that.$.container.classList.remove('on');
+				}
+			});
+		}
+	});
+	</script>
+</polymer-element>
