@@ -1,18 +1,115 @@
-<polymer-element name="xmas-tree">
+<polymer-element name="xmas-tree" attributes="turn">
 	<template>
 		<div id="container">
-			<p>árvore</p>
+			<div class="balls"></div>
+			<div class="tree"></div>
+			<p class="text">Did you forgot to buy a christmas tree? Yours problems are over! Turn off the lights or <a id="link" href="#" title="on / off"> click here</a>.</p>
 		</div>
 
 		<style>
-		p {
-			color: red;
+		#container {
+			margin: 50px auto 0;
+			width: 400px;
+			position: relative;
 		}
-		.on p {
-			color: green;
+		.text {
+			position: relative;
+			width: 28em;
+			text-align: center;
+			top: 25em;
+			margin: 0 -4em;
+			font-size: 18px;
+			line-height: 1em;
+			color: #555;
+			font-family: arial;
+		}
+		.text a {color: #e67e22;}
+		.tree, .tree:before, .tree:after {
+			height: 0;
+			width: 0;
+			position: absolute;
+			border-radius: 4em;
+			z-index: 1;
+		}
+		.tree {
+			border-left: 12em solid transparent;
+			border-right: 12em solid transparent;
+			border-bottom: 12em solid green;
+		}
+		.tree:after {
+			content:'';
+			border-left: 14em solid transparent;
+			border-right: 14em solid transparent;
+			border-bottom: 12em solid green;
+			left: -14em;
+			top: 6em;
+		}
+		.tree:before {
+			content:'';
+			border-left: 18em solid transparent;
+			border-right: 18em solid transparent;
+			border-bottom: 18em solid green;
+			left: -18em;
+			top: 8em;
+			border-radius: 4em;
+		}
+		.balls {
+			position: absolute;
+			z-index: 2;
+			width: 34em;
+			height: 26em;
+			left: -5em;
+			background-image:
+			-webkit-radial-gradient(center, cover circle, #e74c3c 50%, transparent 50%),
+			-webkit-radial-gradient(center, cover circle, #16a085 50%, transparent 50%),
+			-webkit-radial-gradient(center, cover circle, #3498db 50%, transparent 50%),
+			-webkit-radial-gradient(center, cover circle, #9b59b6 50%, transparent 50%),
+			-webkit-radial-gradient(center, cover circle, #e67e22 50%, transparent 50%),
+			-webkit-radial-gradient(center, cover circle, #2ecc71 50%, transparent 50%),
+			-webkit-radial-gradient(center, cover circle, #f1c40f 50%, transparent 50%)
+			;
+			background-image:
+			-moz-radial-gradient(center, cover circle, #e74c3c 50%, transparent 50%),
+			-moz-radial-gradient(center, cover circle, #16a085 50%, transparent 50%),
+			-moz-radial-gradient(center, cover circle, #3498db 50%, transparent 50%),
+			-moz-radial-gradient(center, cover circle, #9b59b6 50%, transparent 50%),
+			-moz-radial-gradient(center, cover circle, #e67e22 50%, transparent 50%),
+			-moz-radial-gradient(center, cover circle, #2ecc71 50%, transparent 50%),
+			-moz-radial-gradient(center, cover circle, #f1c40f 50%, transparent 50%)
+			;
+			background-image:
+			radial-gradient(center, cover circle, #e74c3c 50%, transparent 50%),
+			radial-gradient(center, cover circle, #16a085 50%, transparent 50%),
+			radial-gradient(center, cover circle, #3498db 50%, transparent 50%),
+			radial-gradient(center, cover circle, #9b59b6 50%, transparent 50%),
+			radial-gradient(center, cover circle, #e67e22 50%, transparent 50%),
+			radial-gradient(center, cover circle, #2ecc71 50%, transparent 50%),
+			radial-gradient(center, cover circle, #f1c40f 50%, transparent 50%)
+			;
+			background-size: 60px 60px;
+			background-position: 22em 4em, 8em 6em, 16em 12em, 26em 15em, 10em 15em, 4em 18em, 20em 20em;
+			background-repeat: no-repeat;
+		}
+		.on .balls {
+			animation: xmas 1s steps(1) infinite;
+		}
+		@-moz-keyframes xmas {
+			0%, 100% {
+				background-position: 22em 4em, 8em 6em, 16em 12em, 26em 15em, 10em 15em, 4em 18em, 20em 20em;
+			}
+			20%, 80% {
+				background-position: 4em 18em, 20em 20em, 22em 4em, 8em 6em, 16em 12em, 26em 15em, 10em 15em;
+			}
+			40% {
+				background-position:  10em 15em, 4em 18em, 22em 4em, 8em 6em, 26em 15em, 20em 20em, 16em 12em;
+			}
+			60% {
+				background-position: 26em 15em, 10em 15em, 8em 6em, 16em 12em, 22em 4em, 4em 18em, 20em 20em;
+			}
 		}
 		</style>
 	</template>
+
 	<script>
 	Polymer('xmas-tree', {
 		created: function() {
@@ -20,12 +117,36 @@
 
 			window.addEventListener('devicelight', function(event) {
 				if (event.value <= 10) {
-					that.$.container.classList.add('on');
+					that.setAttribute('turn', 'on');
 				}
 				else {
-					that.$.container.classList.remove('on');
+					that.setAttribute('turn', 'off');
 				}
 			});
+
+			that.$.link.addEventListener('click', function(event) {
+				event.preventDefault();
+
+				var turn = that.getAttribute('turn');
+
+				if (turn == 'on') {
+					that.setAttribute('turn', 'off');
+				}
+				else {
+					that.setAttribute('turn', 'on');
+				}
+			});
+		},
+
+		turnChanged: function(oldVal) {
+			var turn = this.getAttribute('turn');
+
+			if (turn == 'on') {
+				this.$.container.classList.add('on');
+			}
+			else {
+				this.$.container.classList.remove('on');
+			}
 		}
 	});
 	</script>
