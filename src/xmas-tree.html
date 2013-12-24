@@ -19,7 +19,6 @@
 			var that = this;
 
 			window.addEventListener('devicelight', function(event) {
-				console.log(event.value);
 				if (event.value <= 10) {
 					that.$.container.classList.add('on');
 				}

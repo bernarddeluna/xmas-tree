@@ -10,24 +10,48 @@ Web Components Experiment using [Ambient Light API](http://www.w3.org/TR/ambient
 
 > [Check it live](http://bernarddeluna.github.io/xmas-tree).
 
+## Setup
+
+1. Install [NodeJS](http://nodejs.org/download/), if you don't have it yet.
+
+2. Install [GruntJS](http://gruntjs.com/) globally:
+
+	```sh
+$ [sudo] npm install -g grunt-cli
+	```
+
+3. Install local dependencies:
+
+	```sh
+$ npm install
+	```
+
+4. Run a local server:
+
+	```sh
+$ grunt
+	```
+
+Now you can see the website running in `http://localhost:9000` :D
+
 ## Usage
 
 1. Import Web Components' polyfill:
 
 	```xml
-	<script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.0.20130816/polymer.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.0.20130816/polymer.min.js"></script>
 	```
 
 2. Import Custom Element:
 
 	```xml
-	<link rel="import" href="src/xmas-tree.html">
+<link rel="import" href="src/xmas-tree.html">
 	```
 
 3. Start using it!
 
 	```xml
-	<xmas-tree></xmas-tree>
+<xmas-tree></xmas-tree>
 	```
 
 ## Contributing
